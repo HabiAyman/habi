@@ -22,7 +22,11 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 
 # TODO: connect to a local postgresql database
-migrate = Migrate(app, db)
+conn = psycopg2.connect(
+    host="localhost",
+    database="suppliers",
+    user="postgres",
+    password="412000")
 #----------------------------------------------------------------------------#
 # Models.
 #----------------------------------------------------------------------------#
